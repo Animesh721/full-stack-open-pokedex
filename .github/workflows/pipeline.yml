@@ -1,4 +1,4 @@
-name: Deployment pipeline
+name: Linting Pipeline
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  simple_deployment_pipeline:
+  lint_job:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
@@ -15,5 +15,5 @@ jobs:
           node-version: '20'
       - name: Install dependencies
         run: npm install
-      - name: Check style
+      - name: Run ESLint
         run: npm run eslint
