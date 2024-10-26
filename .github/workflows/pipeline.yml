@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  lint_job:
+  simple_deployment_pipeline:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
@@ -17,3 +17,7 @@ jobs:
         run: npm install
       - name: Run ESLint
         run: npm run eslint
+      - name: Build the app
+        run: npm run build
+      - name: Run tests
+        run: npm test
